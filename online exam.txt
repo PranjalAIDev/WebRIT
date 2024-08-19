@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Exam</title>
+    <script language="javascript">
+        function exam(form){
+            var i=0;
+            if(form.one[2].checked)
+            i++;
+        if(form.three[0].checked)
+        i++;
+        if(form.four[0].checked)
+        i++;
+    if(form.five[1].checked)
+    i++;
+window.alert("Thank You taking online exam!Your Score is:"+i);
+        }
+    </script>
+</head>
+<body bgcolor=silver>
+    <form onSubmit="exam(this)">
+        <center><h1><blink>Exam Form</blink></h1></center>
+        <p>
+            <h1>1.Which is the independent </h1>
+            <input type="radio" name="one" value="object">
+            <label>Object</label>
+            <input type="radio" name="one" value="math">
+            <label>Math</label>
+            <input type="radio" name="one" value="english">
+            <label>English</label>
+            <input type="radio" name="one" value="Science">
+            <label>Science</label>
+        </p>
+        <p>
+            <h1>2.Frame package is in which package</h1>
+            <input type="radio" name="three" value="awt">
+            <label>Awt</label>
+            <input type="radio" name="three" value="applet">
+            <label>Applet</label>
+            <input type="radio" name="three" value="lang">
+            <label>Lang</label>
+            <input type="radio" name="three" value="swing">
+            <label>Swing</label>
+        </p>
+        <p>
+            <h1>3.Which language is object oriented</h1>
+            <input type="radio" name="four" value="c++">
+            <label>C++</label>
+            <input type="radio" name="four" value="c">
+            <label>C</label>
+            <input type="radio" name="four" value="rust">
+            <label>Rust</label>
+            <input type="radio" name="four" value="html">
+            <label>HTML</label>
+        </p>
+        <p>
+            <h1>4. Java does not support?</h1>
+            <input type="radio" name="five" value="inheritence">
+            <label>inheritence</label>
+            <input type="radio" name="five" value="multiple inheritence">
+            <label>Multiple inheritence</label>
+            <input type="radio" name="five" value="polymorphism">
+            <label>polymorphism</label>
+            <input type="radio" name="five" value="encryption">
+            <label>encryption</label>
+        </p>
+    <p>
+        <center>
+            <input type="submit" value=" Submit">
+            <input type="reset" value="Reset">
+
+        </center>
+    </p>
+    
+</body>
+</html>
