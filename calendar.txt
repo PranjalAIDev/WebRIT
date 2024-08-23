@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Month</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; text-align: center; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Calendar</h1>
+    <label for="month">Month:</label>
+    <select id="month"></select>
+    
+    <label for="year">Year:</label>
+    <select id="year"></select>
+    
+    <button onclick="displayCalendar()">Show Calendar</button>
+    <div id="calendar"></div>
+
+    <script>
+        const months = ["January", "February", "March", "April", "May", "June", 
+                        "July", "August", "September", "October", "November", "December"];
+        const monthSelect = document.getElementById('month');
+        const yearSelect = document.getElementById('year');
+
+        months.forEach((month, index) => {
+            let option = new Option(month, index);
+            monthSelect.add(option);
+        });
+
+        for (let year = new Date().getFullYear() - 50; year <= new Date().getFullYear() + 50; year++) {
+            let option = new Option(year, year);
+            yearSelect.add(option);
+        }
+
+        function displayCalendar() {
+            let month = parseInt(monthSelect.value);
+            let year = parseInt(yearSelect.value);
+            let firstDay = new Date(year, month, 1).getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let table = '<table><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>';
+            for (let i = 0; i < firstDay; i++) table += '<td></td>';
+            
+            for (let day = 1; day <= daysInMonth; day++) {
+                table += `<td>${day}</td>`;
+                if ((firstDay + day) % 7 === 0) table += '</tr><tr>';
+            }
+            table += '</tr></table>';
+            document.getElementById('calendar').innerHTML = table;
+        }
+    </script>
+</body>
+</html>
